@@ -604,14 +604,14 @@ const Details = () => {
 
   return (
     <>
-      <SEO
+      {/* <SEO
         title={blogs?.title}
         description={blogs?.description}
         image={blogs?.image}
         redirectLink={blogs?.redirectLink}
         createdAt={blogs?.createdAt}
         authorName={blogs?.authorName}
-      />
+      /> */}
       {mediaModal()}
 
       <div className="mt-[91.9px] 2xl:w-[80%] xl:w-[93%] lg:w-[95%] mx-auto flex items-start gap-[90px] md:gap-[60px] sm:gap-[60px] xs:gap-[40px] md:flex-wrap sm:flex-wrap xs:flex-wrap">

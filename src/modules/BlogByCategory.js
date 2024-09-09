@@ -16,39 +16,8 @@ export default function BlogByCategory() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { blogsList, loading } = useSelector((state) => state.blog);
-
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-
-    // Update the page title based on category, tags, or location
-    if (category) {
-      document.title = `${category} - Blogs`; // Set the title
-    } else if (tags) {
-      document.title = `${tags} - Blogs`; // Set the title
-    } else if (location) {
-      document.title = `${location} - Blogs`; // Set the title
-    } else {
-      document.title = "Blogs"; // Default title
-    }
-
-    // Push meta tags to dataLayer
-    const metaTags = [category, tags, location].filter(Boolean); // Collect non-null values
-
-    if (typeof window !== "undefined") {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        tags: metaTags.join(", "),
-      });
-      console.log("Pushed metaTags to dataLayer: ", metaTags);
-    }
-
-    // Set meta tag in the head dynamically
-    const metaTag = document.createElement("meta");
-    metaTag.name = "tags";
-    metaTag.content = metaTags.length > 0 ? metaTags.join(", ") : "";
-    document.head.appendChild(metaTag);
-
-    // Fetch data based on category, tags, or location
     if (location) {
       dispatch(
         getBlogsByLocations({
@@ -66,7 +35,7 @@ export default function BlogByCategory() {
           payload: category,
           callback: (data) => {
             if (data?.status === 200) {
-              // Handle response
+              // console.log(data);
             }
           },
         })
@@ -77,23 +46,17 @@ export default function BlogByCategory() {
           payload: tags,
           callback: (data) => {
             if (data?.status === 200) {
-              // Handle response
+              // console.log(data);
             }
           },
         })
       );
     }
-
-    // Clean up the meta tag when component unmounts
-    return () => {
-      document.head.removeChild(metaTag);
-    };
-  }, [category, tags, location, dispatch]);
+  }, [category, tags,location]);
 
   const navigateToDetails = (redirectLink) => {
     navigate(`/blog/${redirectLink}`);
   };
-
   if (loading) {
     return (
       <div className="w-full flex justify-center mt-12">
@@ -101,11 +64,10 @@ export default function BlogByCategory() {
       </div>
     );
   }
-
   return (
     <div>
-      {/* <SEO title={category || tags || location} /> */}
-      <div className="mt-12">
+      <SEO title={category || tags || location} />
+      <div className=" mt-12">
         <div className="flex items-center gap-[14px] mb-[33px]">
           <Image
             src="/icons/orangeCircle.svg"
@@ -134,7 +96,7 @@ export default function BlogByCategory() {
             ))}
           </div>
         ) : (
-          <p className="text-center text-[18px] w-full">No Blogs Found</p>
+          <p className="text-center text-[18px] w-full ">No Blogs Found</p>
         )}
       </div>
     </div>

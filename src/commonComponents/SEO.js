@@ -13,7 +13,7 @@ export default function SEO({
   return (
     <Helmet>
       {/* Primary Meta Tags */}
-      <meta name="title" content={ "jawwwwww"} />
+      <meta name="og:title" content={"jawwwwww"} />
       <meta
         name="description"
         content={

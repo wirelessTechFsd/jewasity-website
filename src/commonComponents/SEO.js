@@ -1,12 +1,19 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 
-export default function SEO({ title, description, image, redirectLink,createdAt,authorName }) {
+export default function SEO({
+  title,
+  description,
+  image,
+  redirectLink,
+  createdAt,
+  authorName,
+}) {
   return (
     <Helmet>
       {/* Primary Meta Tags */}
-      <title>{title||'Jewasity'}</title>
-      <meta name="title" content={title || 'Jewasity'} />
+      <title>{title || "Jewasity"}</title>
+      <meta name="title" content={title || "Jewasity"} />
       <meta
         name="description"
         content={
@@ -21,7 +28,7 @@ export default function SEO({ title, description, image, redirectLink,createdAt,
         property="og:url"
         content={`https://jewasity.com/blog/${redirectLink}`}
       />
-      <meta property="og:title" content={title||'Jewasity'} />
+      <meta property="og:title" content={title || "Jewasity"} />
       <meta
         property="og:description"
         content={
@@ -32,13 +39,15 @@ export default function SEO({ title, description, image, redirectLink,createdAt,
       <meta
         property="og:image"
         content={
-          image||"https://jewasity-prod.s3.amazonaws.com/668db575-34fe-494f-b8f8-b335ec012e0c.png"
+          image ||
+          "https://jewasity-prod.s3.amazonaws.com/668db575-34fe-494f-b8f8-b335ec012e0c.png"
         }
       />
       <meta
         property="og:image:secure_url"
         content={
-           image||"https://jewasity-prod.s3.amazonaws.com/668db575-34fe-494f-b8f8-b335ec012e0c.png"
+          image ||
+          "https://jewasity-prod.s3.amazonaws.com/668db575-34fe-494f-b8f8-b335ec012e0c.png"
         }
       />
       <meta property="og:image:width" content="1200" />
@@ -50,7 +59,10 @@ export default function SEO({ title, description, image, redirectLink,createdAt,
 
       {/* Article Meta Tags for LinkedIn */}
       <meta property="article:published_time" content={createdAt} />
-      <meta property="article:author" content={authorName||'Jewasity Staff'} />
+      <meta
+        property="article:author"
+        content={authorName || "Jewasity Staff"}
+      />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -58,8 +70,13 @@ export default function SEO({ title, description, image, redirectLink,createdAt,
         property="twitter:url"
         content={`https://jewasity.com/blog/${redirectLink}`}
       />
-      <meta name="twitter:title" content={title||'Jewasity'} />
       <meta
+        property="blog-title"
+        name="twitter:title"
+        content={title || "Jewasity"}
+      />
+      <meta
+        property="blog-description"
         name="twitter:description"
         content={
           description ||
@@ -68,8 +85,10 @@ export default function SEO({ title, description, image, redirectLink,createdAt,
       />
       <meta
         name="twitter:image"
+        property="blog-image"
         content={
-          image||"https://jewasity-prod.s3.amazonaws.com/668db575-34fe-494f-b8f8-b335ec012e0c.png"
+          image ||
+          "https://jewasity-prod.s3.amazonaws.com/668db575-34fe-494f-b8f8-b335ec012e0c.png"
         }
       />
     </Helmet>

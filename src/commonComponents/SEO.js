@@ -14,7 +14,7 @@ export default function SEO({
     <Helmet>
       {/* Primary Meta Tags */}
       <title>{title || "Jewasity"}</title>
-      <meta name="title" content={title || "Jewasity"} />
+      <meta property="og:title" content={title} />
       <meta
         name="description"
         content={

@@ -70,38 +70,47 @@ export default function BlogByCategory() {
       {/* <SEO title={category || tags || location} /> */}
       <Helmet>
         {/* Primary Meta Tags */}
-        <title>{title || "Jewasity"}</title>
-        <meta name="title" content={title || "Jewasity"} />
+        <title>{category || tags || location || "Jewasity"}</title>
         <meta
-          name="description"
-          content={description || "Default blog description"}
+          name="title"
+          content={category || tags || location || "Jewasity"}
         />
+        <meta name="description" content={"Default blog description"} />
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="article" />
         <meta
           property="og:url"
-          content={`https://jewasity.com/blog/${redirectLink}`}
+          content={`https://jewasity.com/blog/${"redirectLink"}`}
         />
-        <meta property="og:title" content={title || "Jewasity"} />
+        <meta
+          property="og:title"
+          content={category || tags || location || "Jewasity"}
+        />
         <meta
           property="og:description"
-          content={description || "Default blog description"}
+          content={"description" || "Default blog description"}
         />
-        <meta property="og:image" content={image || "default-image-url.png"} />
+        <meta
+          property="og:image"
+          content={"image" || "default-image-url.png"}
+        />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           property="twitter:url"
-          content={`https://jewasity.com/blog/${redirectLink}`}
+          content={`https://jewasity.com/blog/${"redirectLink"}`}
         />
-        <meta name="twitter:title" content={title || "Jewasity"} />
+        <meta name="twitter:title" content={"title" || "Jewasity"} />
         <meta
           name="twitter:description"
           content={description || "Default blog description"}
         />
-        <meta name="twitter:image" content={image || "default-image-url.png"} />
+        <meta
+          name="twitter:image"
+          content={"image" || "default-image-url.png"}
+        />
       </Helmet>
       <div className=" mt-12">
         <div className="flex items-center gap-[14px] mb-[33px]">

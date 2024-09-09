@@ -8,16 +8,16 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import mixpanel from "mixpanel-browser";
 import { HelmetProvider } from "react-helmet-async";
-mixpanel.init("4fbbe7193eeaa9f4e91b347194243689");
+mixpanel.init('4fbbe7193eeaa9f4e91b347194243689');
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <HelmetProvider>
+  <HelmetProvider>
+    <React.StrictMode>
+      <Provider store={store}>
         <App />
-      </HelmetProvider>
-    </Provider>
-  </React.StrictMode>
+      </Provider>
+    </React.StrictMode>
+  </HelmetProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

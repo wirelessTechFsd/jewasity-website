@@ -105,7 +105,7 @@ export default function BlogByCategory() {
         <meta name="twitter:title" content={"title" || "Jewasity"} />
         <meta
           name="twitter:description"
-          content={description || "Default blog description"}
+          content={"description" || "Default blog description"}
         />
         <meta
           name="twitter:image"

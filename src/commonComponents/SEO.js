@@ -13,7 +13,8 @@ export default function SEO({
   return (
     <Helmet>
       {/* Primary Meta Tags */}
-      <meta name="og:title" content={"jawwwwww"} />
+      <title>{title || "Jewasity"}</title>
+      <meta name="title" content={title || "Jewasity"} />
       <meta
         name="description"
         content={
@@ -28,7 +29,7 @@ export default function SEO({
         property="og:url"
         content={`https://jewasity.com/blog/${redirectLink}`}
       />
-      <meta property="og:title" content={title} />
+      <meta property="og:title" content={title || "Jewasity"} />
       <meta
         property="og:description"
         content={
@@ -91,7 +92,6 @@ export default function SEO({
           "https://jewasity-prod.s3.amazonaws.com/668db575-34fe-494f-b8f8-b335ec012e0c.png"
         }
       />
-      <title>{title || "Jewasity"}</title>
     </Helmet>
   );
 }

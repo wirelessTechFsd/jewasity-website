@@ -10,7 +10,6 @@ import Loader from "../commonComponents/loader/Loader";
 import { Card } from "../commonComponents";
 import Image from "../commonComponents/image/Image";
 import SEO from "../commonComponents/SEO";
-import { Helmet } from "react-helmet-async";
 
 export default function BlogByCategory() {
   let { category, tags, location } = useParams();
@@ -53,7 +52,7 @@ export default function BlogByCategory() {
         })
       );
     }
-  }, [category, tags, location]);
+  }, [category, tags,location]);
 
   const navigateToDetails = (redirectLink) => {
     navigate(`/blog/${redirectLink}`);
@@ -67,51 +66,7 @@ export default function BlogByCategory() {
   }
   return (
     <div>
-      {/* <SEO title={category || tags || location} /> */}
-      <Helmet>
-        {/* Primary Meta Tags */}
-        <title>{category || tags || location || "Jewasity"}</title>
-        <meta
-          name="title"
-          content={category || tags || location || "Jewasity"}
-        />
-        <meta name="description" content={"Default blog description"} />
-
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="article" />
-        <meta
-          property="og:url"
-          content={`https://jewasity.com/blog/${"redirectLink"}`}
-        />
-        <meta
-          property="og:title"
-          content={category || tags || location || "Jewasity"}
-        />
-        <meta
-          property="og:description"
-          content={"description" || "Default blog description"}
-        />
-        <meta
-          property="og:image"
-          content={"image" || "default-image-url.png"}
-        />
-
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          property="twitter:url"
-          content={`https://jewasity.com/blog/${"redirectLink"}`}
-        />
-        <meta name="twitter:title" content={"title" || "Jewasity"} />
-        <meta
-          name="twitter:description"
-          content={"description" || "Default blog description"}
-        />
-        <meta
-          name="twitter:image"
-          content={"image" || "default-image-url.png"}
-        />
-      </Helmet>
+      <SEO title={category || tags || location} />
       <div className=" mt-12">
         <div className="flex items-center gap-[14px] mb-[33px]">
           <Image

@@ -6,17 +6,17 @@ import reportWebVitals from "./reportWebVitals";
 import "react-datepicker/dist/react-datepicker.css";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
-import mixpanel from 'mixpanel-browser';
+import mixpanel from "mixpanel-browser";
 import { HelmetProvider } from "react-helmet-async";
-mixpanel.init('4fbbe7193eeaa9f4e91b347194243689');
+mixpanel.init("4fbbe7193eeaa9f4e91b347194243689");
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-      <HelmetProvider>
     <Provider store={store}>
-      <App />
+      <HelmetProvider>
+        <App />
+      </HelmetProvider>
     </Provider>
-    </HelmetProvider>
   </React.StrictMode>
 );
 

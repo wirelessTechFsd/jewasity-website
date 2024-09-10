@@ -66,7 +66,7 @@ export default function Layout({ children }) {
             __html: `
                 window.dataLayer = window.dataLayer || [];
                 dataLayer.push({
-                  'tags': "${metaTags.length > 0 ? metaTags.join(", ") : ""}"
+                  'og:title': "${metaTags.length > 0 ? metaTags.join(", ") : ""}"
                 });
               `,
           }}

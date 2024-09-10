@@ -614,12 +614,15 @@ const Details = () => {
         authorName={blogs?.authorName}
       /> */}
       <Helmet>
-        <title>My Title</title>
-        <meta name="description" content="Helmet application" />
+        <title>My Dynamic Title</title>
         <meta
-          property="og:title"
-          name="og:title"
-          content="Helmet application"
+          name="description"
+          content="Helmet application dynamic description"
+        />
+        <meta property="og:title" content="Dynamic Helmet Title" />
+        <meta
+          property="og:description"
+          content="This is dynamically set by Helmet."
         />
       </Helmet>
       {mediaModal()}

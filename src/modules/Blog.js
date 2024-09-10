@@ -36,6 +36,7 @@ import {
 } from "../redux/slices/video.slice";
 import MediaModal from "../commonComponents/mediaModal/MediaModal";
 import SEO from "../commonComponents/SEO";
+import { Helmet } from "react-helmet";
 
 const Details = () => {
   let { redirect: blogTitle } = useParams();
@@ -612,6 +613,10 @@ const Details = () => {
         createdAt={blogs?.createdAt}
         authorName={blogs?.authorName}
       /> */}
+      <Helmet>
+        <title>My Title</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       {mediaModal()}
 
       <div className="mt-[91.9px] 2xl:w-[80%] xl:w-[93%] lg:w-[95%] mx-auto flex items-start gap-[90px] md:gap-[60px] sm:gap-[60px] xs:gap-[40px] md:flex-wrap sm:flex-wrap xs:flex-wrap">

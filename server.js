@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 5000;
 const app = express();
 
 app.get("/", (req, res) => {
-  const filePath = path.resolve(__dirname, "./build", "index.html");
+  const filePath = path.join("./public/index.html");
   fs.readFile(filePath, "utf8", (err, data) => {
     if (err) {
       return console.log(err);

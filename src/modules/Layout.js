@@ -50,28 +50,40 @@ export default function Layout({ children }) {
   useEffect(() => {
     getLocations();
     getBlogsByCategory();
-    // Example: Update metaTags based on some condition
-    setMetaTags(["updatedTag1", "updatedTag2"]);
-    console.log("meta", metaTags);
+    setMetaTags(["updatedTag1", "updatedTag2"]); // Example of updating metaTags
   }, []);
 
   return (
     <>
-      <Helmet>
-        <meta name="tags" content={metaTags.join(", ")} />
+      {/* <Helmet> */}
+      <html lang="en" />
+      <head>
+        <meta
+          name="tags"
+          content={metaTags.length > 0 ? metaTags.join(", ") : ""}
+        />
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
             __html: `
-              window.dataLayer = window.dataLayer || [];
-              window.dataLayer.push({
-                'tags': "${metaTags.join(", ")}"
-              });
-            `,
+                window.dataLayer = window.dataLayer || [];
+                dataLayer.push({
+                  'tags': "${metaTags.length > 0 ? metaTags.join(", ") : ""}"
+                });
+              `,
           }}
         />
-      </Helmet>
-      <div className="relative">
+      </head>
+      <noscript>
+        <iframe
+          src="https://www.googletagmanager.com/ns.html?id=GTM-K22XJ4XP"
+          height="0"
+          width="0"
+          style={{ display: "none", visibility: "hidden" }}
+        ></iframe>
+      </noscript>
+      {/* </Helmet> */}
+      <body>
         <Toaster position="top-center" reverseOrder={false} />
         <FormModal isOpen={isModalOpen} onClose={closeModal} />
         <SubscribeModal
@@ -107,7 +119,7 @@ export default function Layout({ children }) {
         />
         <div className="px-[51px] sm:px-[30px] xs:px-[20px]">{children}</div>
         <Footer />
-      </div>
+      </body>
     </>
   );
 }

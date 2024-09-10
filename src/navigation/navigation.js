@@ -27,7 +27,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <PrivateRoute metaTags={["tag1", "tag2", "tag3"]}>
+      <PrivateRoute>
         <Layout>
           <Home />
         </Layout>
@@ -38,7 +38,7 @@ export const router = createBrowserRouter([
   {
     path: "/peeks",
     element: (
-      <PrivateRoute metaTags={["tag1", "tag2", "tag3"]}>
+      <PrivateRoute>
         <Layout>
           <Peeks />
         </Layout>
@@ -49,7 +49,7 @@ export const router = createBrowserRouter([
   {
     path: "/music",
     element: (
-      <PrivateRoute metaTags={["tag1", "tag2", "tag3"]}>
+      <PrivateRoute>
         <Layout>
           <Music />
         </Layout>
@@ -60,7 +60,7 @@ export const router = createBrowserRouter([
   {
     path: "/Influensity",
     element: (
-      <PrivateRoute metaTags={["tag1", "tag2", "tag3"]}>
+      <PrivateRoute>
         <Layout>
           <Influasity />
         </Layout>
@@ -71,7 +71,7 @@ export const router = createBrowserRouter([
   {
     path: "/blog/:redirect",
     element: (
-      <PrivateRoute metaTags={["tag1", "tag2", "tag3"]}>
+      <PrivateRoute>
         <Layout>
           <Details />
         </Layout>
@@ -82,7 +82,7 @@ export const router = createBrowserRouter([
   {
     path: "/blogs-list/:category",
     element: (
-      <PrivateRoute metaTags={["tag1", "tag2", "tag3"]}>
+      <PrivateRoute>
         <Layout>
           <BlogByCategory />
         </Layout>
@@ -93,7 +93,7 @@ export const router = createBrowserRouter([
   {
     path: "/tag-blogs-list/:tags",
     element: (
-      <PrivateRoute metaTags={["tag1", "tag2", "tag3"]}>
+      <PrivateRoute>
         <Layout>
           <BlogByCategory />
         </Layout>
@@ -104,7 +104,7 @@ export const router = createBrowserRouter([
   {
     path: "/location-blogs-list/:location",
     element: (
-      <PrivateRoute metaTags={["tag1", "tag2", "tag3"]}>
+      <PrivateRoute>
         <Layout>
           <BlogByCategory />
         </Layout>
@@ -115,7 +115,7 @@ export const router = createBrowserRouter([
   {
     path: "/permissions",
     element: (
-      <PrivateRoute metaTags={["tag1", "tag2", "tag3"]}>
+      <PrivateRoute>
         <Layout>
           <Permissions />
         </Layout>
@@ -126,7 +126,7 @@ export const router = createBrowserRouter([
   {
     path: "/write-for-us",
     element: (
-      <PrivateRoute metaTags={["tag1", "tag2", "tag3"]}>
+      <PrivateRoute>
         <Layout>
           <WriteForUs />
         </Layout>
@@ -137,7 +137,7 @@ export const router = createBrowserRouter([
   {
     path: "/terms-and-conditions",
     element: (
-      <PrivateRoute metaTags={["tag1", "tag2", "tag3"]}>
+      <PrivateRoute>
         <Layout>
           <TermAndConditions />
         </Layout>
@@ -149,7 +149,7 @@ export const router = createBrowserRouter([
   {
     path: "/privacy",
     element: (
-      <PrivateRoute metaTags={["tag1", "tag2", "tag3"]}>
+      <PrivateRoute>
         <Layout>
           <PrivacyPolicy />
         </Layout>
@@ -160,7 +160,7 @@ export const router = createBrowserRouter([
   {
     path: "/advertise-with-us",
     element: (
-      <PrivateRoute metaTags={["tag1", "tag2", "tag3"]}>
+      <PrivateRoute>
         <Layout>
           <AdvertiseWithUs />
         </Layout>

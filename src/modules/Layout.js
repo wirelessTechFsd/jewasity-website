@@ -10,9 +10,10 @@ import { useNavigate } from "react-router-dom";
 import {
   getBlogBycategory,
   getBlogsLocations,
+  setBlog,
 } from "../redux/slices/blog.slice";
 import { useDispatch } from "react-redux";
-import { Helmet } from "react-helmet";
+import SEO from "../commonComponents/SEO";
 
 export default function Layout({ children }) {
   const dispatch = useDispatch();
@@ -20,59 +21,80 @@ export default function Layout({ children }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubscribeModalOpen, setIsSubscribeModalOpen] = useState(false);
   const [isContactModal, setIsContactModalOpen] = useState(false);
-  const [metaTags, setMetaTags] = useState(["defaultTag1", "defaultTag2"]); // Default meta tags
   const navigate = useNavigate();
+  const openModal = () => {
+    setSidebarOpen(false);
+    setIsModalOpen(true);
+  };
 
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
-  const openSubscribeModal = () => setIsSubscribeModalOpen(true);
-  const closeSubscribeModal = () => setIsSubscribeModalOpen(false);
+  const openSubscribeModal = () => {
+    setSidebarOpen(false);
+    setIsSubscribeModalOpen(true);
+  };
 
-  const openContactModal = () => setIsContactModalOpen(true);
-  const closeContactModal = () => setIsContactModalOpen(false);
+  const closeSubscribeModal = () => {
+    setIsSubscribeModalOpen(false);
+  };
+  const openContactModal = () => {
+    setSidebarOpen(false);
+    setIsContactModalOpen(true);
+  };
 
-  const navigateToMusic = () => navigate("/music");
-  const navigateToInfluasity = () => navigate("/Influensity");
-  const navigateToPeeks = () => navigate("/peeks");
-  const navigateToHome = () => navigate("/");
-  const navigateToNews = (id) =>
+  const closeContactModal = () => {
+    setIsContactModalOpen(false);
+  };
+  const navigateToMusic = () => {
+    setSidebarOpen(false);
+    navigate("/music");
+  };
+  const navigateToInfluasity = () => {
+    setSidebarOpen(false);
+    navigate("/Influensity");
+  };
+  const navigateToPeeks = () => {
+    setSidebarOpen(false);
+    navigate("/peeks");
+  };
+  const navigateToHome = () => {
+    setSidebarOpen(false);
+    navigate("/");
+  };
+  const navigateToNews = (id) => {
+    setSidebarOpen(false);
     navigate(`/blogs-list/${id}`, { replace: true });
-
+  };
   const getBlogsByCategory = () => {
-    dispatch(getBlogBycategory({ payload: "" }));
+    dispatch(
+      getBlogBycategory({
+        payload: "",
+        callback: (data) => {
+          if (data?.status == 200) {
+          }
+        },
+      })
+    );
   };
-
   const getLocations = () => {
-    dispatch(getBlogsLocations({ payload: "" }));
+    dispatch(
+      getBlogsLocations({
+        payload: "",
+        callback: (data) => {
+          console.log("location", data);
+        },
+      })
+    );
   };
-
   useEffect(() => {
-    getLocations();
+    getLocations()
     getBlogsByCategory();
-    setMetaTags(["updatedTag1", "updatedTag2"]); // Example of updating metaTags
   }, []);
-
   return (
-    <>
-      <head>
-        <meta
-          property="og:title"
-          content={metaTags.length > 0 ? metaTags.join(", ") : ""}
-        />
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={{
-            __html: `
-                window.dataLayer = window.dataLayer || [];
-                dataLayer.push({
-                  'og:title': "${metaTags.length > 0 ? metaTags.join(", ") : ""}"
-                });
-              `,
-          }}
-        />
-      </head>
-
+    <div className="relative">
+      {/* <SEO /> */}
       <Toaster position="top-center" reverseOrder={false} />
       <FormModal isOpen={isModalOpen} onClose={closeModal} />
       <SubscribeModal
@@ -106,8 +128,9 @@ export default function Layout({ children }) {
         navigateToNews={navigateToNews}
         navigateToPeeks={navigateToPeeks}
       />
+
       <div className="px-[51px] sm:px-[30px] xs:px-[20px]">{children}</div>
       <Footer />
-    </>
+    </div>
   );
 }

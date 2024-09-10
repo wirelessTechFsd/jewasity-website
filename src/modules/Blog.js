@@ -36,7 +36,6 @@ import {
 } from "../redux/slices/video.slice";
 import MediaModal from "../commonComponents/mediaModal/MediaModal";
 import SEO from "../commonComponents/SEO";
-import { Helmet } from "react-helmet";
 
 const Details = () => {
   let { redirect: blogTitle } = useParams();
@@ -605,26 +604,14 @@ const Details = () => {
 
   return (
     <>
-      {/* <SEO
+      <SEO
         title={blogs?.title}
         description={blogs?.description}
         image={blogs?.image}
         redirectLink={blogs?.redirectLink}
         createdAt={blogs?.createdAt}
         authorName={blogs?.authorName}
-      /> */}
-      <Helmet>
-        <title>My Dynamic Title</title>
-        <meta
-          name="description"
-          content="Helmet application dynamic description"
-        />
-        <meta property="og:title" content="Dynamic Helmet Title" />
-        <meta
-          property="og:description"
-          content="This is dynamically set by Helmet."
-        />
-      </Helmet>
+      />
       {mediaModal()}
 
       <div className="mt-[91.9px] 2xl:w-[80%] xl:w-[93%] lg:w-[95%] mx-auto flex items-start gap-[90px] md:gap-[60px] sm:gap-[60px] xs:gap-[40px] md:flex-wrap sm:flex-wrap xs:flex-wrap">

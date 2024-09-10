@@ -55,11 +55,9 @@ export default function Layout({ children }) {
 
   return (
     <>
-      {/* <Helmet> */}
-      <html lang="en" />
       <head>
         <meta
-          name="tags"
+          property="og:title"
           content={metaTags.length > 0 ? metaTags.join(", ") : ""}
         />
         <script
@@ -74,52 +72,42 @@ export default function Layout({ children }) {
           }}
         />
       </head>
-      <noscript>
-        <iframe
-          src="https://www.googletagmanager.com/ns.html?id=GTM-K22XJ4XP"
-          height="0"
-          width="0"
-          style={{ display: "none", visibility: "hidden" }}
-        ></iframe>
-      </noscript>
-      {/* </Helmet> */}
-      <body>
-        <Toaster position="top-center" reverseOrder={false} />
-        <FormModal isOpen={isModalOpen} onClose={closeModal} />
-        <SubscribeModal
-          isOpen={isSubscribeModalOpen}
-          onClose={closeSubscribeModal}
-        />
-        <ContactModal isOpen={isContactModal} onClose={closeContactModal} />
-        <div className="px-[51px] sm:px-[30px] xs:px-[20px]">
-          <Navbar
-            setSidebarOpen={setSidebarOpen}
-            sidebarOpen={sidebarOpen}
-            openModal={openModal}
-            openSubscribeModal={openSubscribeModal}
-            openContactModal={openContactModal}
-            navigateToMusic={navigateToMusic}
-            navigateToInfluasity={navigateToInfluasity}
-            navigateToHome={navigateToHome}
-            navigateToPeeks={navigateToPeeks}
-            navigateToNews={navigateToNews}
-          />
-        </div>
-        <Sidebar
-          sidebarOpen={sidebarOpen}
+
+      <Toaster position="top-center" reverseOrder={false} />
+      <FormModal isOpen={isModalOpen} onClose={closeModal} />
+      <SubscribeModal
+        isOpen={isSubscribeModalOpen}
+        onClose={closeSubscribeModal}
+      />
+      <ContactModal isOpen={isContactModal} onClose={closeContactModal} />
+      <div className="px-[51px] sm:px-[30px] xs:px-[20px]">
+        <Navbar
           setSidebarOpen={setSidebarOpen}
+          sidebarOpen={sidebarOpen}
           openModal={openModal}
           openSubscribeModal={openSubscribeModal}
           openContactModal={openContactModal}
           navigateToMusic={navigateToMusic}
           navigateToInfluasity={navigateToInfluasity}
           navigateToHome={navigateToHome}
-          navigateToNews={navigateToNews}
           navigateToPeeks={navigateToPeeks}
+          navigateToNews={navigateToNews}
         />
-        <div className="px-[51px] sm:px-[30px] xs:px-[20px]">{children}</div>
-        <Footer />
-      </body>
+      </div>
+      <Sidebar
+        sidebarOpen={sidebarOpen}
+        setSidebarOpen={setSidebarOpen}
+        openModal={openModal}
+        openSubscribeModal={openSubscribeModal}
+        openContactModal={openContactModal}
+        navigateToMusic={navigateToMusic}
+        navigateToInfluasity={navigateToInfluasity}
+        navigateToHome={navigateToHome}
+        navigateToNews={navigateToNews}
+        navigateToPeeks={navigateToPeeks}
+      />
+      <div className="px-[51px] sm:px-[30px] xs:px-[20px]">{children}</div>
+      <Footer />
     </>
   );
 }

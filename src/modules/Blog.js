@@ -616,6 +616,11 @@ const Details = () => {
       <Helmet>
         <title>My Title</title>
         <meta name="description" content="Helmet application" />
+        <meta
+          property="og:title"
+          name="og:title"
+          content="Helmet application"
+        />
       </Helmet>
       {mediaModal()}
 
